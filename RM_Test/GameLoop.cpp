@@ -3,6 +3,9 @@
 
 void GameLoop::initialize() {
     std::cout << "Initializing game resources..." << std::endl;
+    resource_manager = new ResourceManager();
+    resource_manager->load("player_texture");
+    resource_manager->load("enemy_texture");
 }
 
 void GameLoop::update() {
@@ -15,6 +18,7 @@ void GameLoop::render() {
 
 void GameLoop::shutdown() {
     std::cout << "Shutting down the game..." << std::endl;
+    delete resource_manager;
 }
 
 void GameLoop::run() {

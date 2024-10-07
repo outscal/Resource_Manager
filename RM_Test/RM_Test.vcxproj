@@ -157,12 +157,14 @@
     <ClCompile Include="Asset.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="SoundAsset.cpp" />
     <ClCompile Include="TextureAsset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asset.h" />
     <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SoundAsset.h" />
     <ClInclude Include="TextureAsset.h" />
   </ItemGroup>

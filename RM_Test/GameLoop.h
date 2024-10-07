@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "ResourceManager.h"
 
 class GameLoop {
 public:
@@ -9,6 +10,6 @@ public:
     void run();
 
 private:
-    // ResourceManager* resource_manager = nullptr;
+    ResourceManager* resource_manager = nullptr;
     bool isRunning = true;
 };
