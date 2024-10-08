@@ -1,11 +1,13 @@
 ﻿#include "GameLoop.h"
 #include <iostream>
 
+#include "SoundAsset.h"
+
 void GameLoop::initialize() {
     std::cout << "Initializing game resources..." << std::endl;
     resource_manager = new ResourceManager();
-    resource_manager->load("player_texture");
-    resource_manager->load("enemy_texture");
+    resource_manager->loadResource<TextureAsset>("player_texture");
+    resource_manager->loadResource<SoundAsset>("background_music");
 }
 
 void GameLoop::update() {

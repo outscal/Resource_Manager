@@ -1,17 +1,24 @@
 ﻿#include "ResourceManager.h"
+#include <iostream>
 
-TextureAsset* ResourceManager::load(const std::string& assetId) {
-    if (assets.find(assetId) != assets.end()) {
-        return assets[assetId];
+// Destructor: Clean up all resources
+ResourceManager::~ResourceManager() { unloadAllResources(); }
+
+// Unload a specific resource by its ID
+void ResourceManager::unloadResource(const std::string& id)
+{
+    auto iterator = assets.find(id);
+    if (iterator != assets.end())
+    {
+        delete iterator->second;  // Delete the resource
+        assets.erase(iterator);  // Remove it from the map
+        std::cout << "Resource " << id << " unloaded." << std::endl;
     }
-    TextureAsset* texture = new TextureAsset(assetId);
-    texture->load();
-    assets[assetId] = texture;
-    return texture;
 }
 
-ResourceManager::~ResourceManager() {
-    for (auto& pair : assets) {
-        delete pair.second;
-    }
+// Unload all resources
+void ResourceManager::unloadAllResources()
+{
+    assets.clear();  // Clear the map
+    std::cout << "All resources unloaded." << std::endl;
 }
